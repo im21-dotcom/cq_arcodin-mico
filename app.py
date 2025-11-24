@@ -20,7 +20,7 @@ kq_10MV = 0.9787
 class PDF(FPDF):
     def header(self):
         self.set_font("Arial", size=12)
-        self.cell(0, 10, "Relatório de Cálculo de Dose (Controle de Qualidade de Paciente Específico)", ln=True, align="C")
+        self.cell(0, 10, "Cálculo de Dose (Arco Dinâmico)", ln=True, align="C")
         self.ln(5)
 
     def tabela_dados(self, dados_paciente, campos):
