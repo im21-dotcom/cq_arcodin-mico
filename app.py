@@ -84,7 +84,7 @@ with st.form("formulario"):
     st.header("Dados da Câmara")
     ndw = st.number_input(
         "Valor do Nd,w da câmara (cGy/nC)",
-        format="%.4f"
+        format="%.3f"
     )
     
     st.header("Condições Ambientais")
