@@ -12,7 +12,7 @@ from fpdf import FPDF
 from datetime import datetime
 
 # Constantes de calibração
-kq_6MV = 0.9918
+kq_6MV = 0.9913
 kq_10MV = 0.9787
 
 # Classe do PDF
