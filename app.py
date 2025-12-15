@@ -23,6 +23,21 @@ class PDF(FPDF):
         self.cell(0, 10, "Cálculo de Dose (Arco Dinâmico)", ln=True, align="C")
         self.ln(5)
 
+    def footer(self):
+        # Distância do rodapé
+        self.set_y(-25)
+        # Largura desejada do logo
+        logo_width = 60
+        # Calcula posição X para centralizar
+        x_centralizado = (self.w - logo_width) / 2
+        # Insere a imagem
+        self.image(
+            "logo_hospital_clinicas.png",
+            x=x_centralizado,
+            y=self.get_y(),
+            w=logo_width
+        )
+
     def tabela_dados(self, dados_paciente, campos):
         self.set_font("Arial", size=10)
         for chave, valor in dados_paciente.items():
