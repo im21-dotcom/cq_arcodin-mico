@@ -40,8 +40,8 @@ class PDF(FPDF):
     def tabela_dados(self, dados_paciente, campos):
         self.set_font("Arial", size=10)
         for chave, valor in dados_paciente.items():
-            self.cell(50, 8, f"{chave}:", border=0)
-            self.cell(0, 8, str(valor), border=0, ln=True)
+            texto = f"{chave}: {valor}"
+            self.cell(0, 8, texto, ln=True, align="C")
         self.ln(5)
 
         # Cabeçalho da tabela
