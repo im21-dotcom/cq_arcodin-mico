@@ -128,7 +128,7 @@ if enviado:
         "Temperatura (°C)": T,
         "Pressão (kPa)": P,
         "Kt,p": round(ktp, 3),
-        "Nd,w (cGy/nC)": ndw
+        "Nd,w (cGy/nC)": round(ndw, 3)
     }
 
     resultados = []
