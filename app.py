@@ -39,10 +39,17 @@ class PDF(FPDF):
 
     def tabela_dados(self, dados_paciente, campos):
         self.set_font("Arial", size=10)
+        # Larguras fixas
+        largura_label = 50
+        largura_valor = 60
+        largura_total = largura_label + largura_valor
+        # X inicial para centralizar o bloco
+        x_inicio = (self.w - largura_total) / 2
         for chave, valor in dados_paciente.items():
-            texto = f"{chave}: {valor}"
-            self.cell(0, 8, texto, ln=True, align="C")
-        self.ln(5)
+            self.set_x(x_inicio)
+            self.cell(largura_label, 8, f"{chave}:", border=0, align="R")
+            self.cell(largura_valor, 8, str(valor), border=0, ln=True, align="L")
+        self.ln(8)
 
         # Cabeçalho da tabela
         self.set_font("Arial", 'B', 9)
