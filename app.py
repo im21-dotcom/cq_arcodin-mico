@@ -32,7 +32,7 @@ class PDF(FPDF):
         x_centralizado = (self.w - logo_width) / 2
         # Insere a imagem
         self.image(
-            "logo_hospital_clinicas.png",
+            "logo_hospital_de_clínicas.png",
             x=x_centralizado,
             y=self.get_y(),
             w=logo_width
