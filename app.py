@@ -123,7 +123,7 @@ if enviado:
             "diferenca_percentual": diferenca
         })
 
-    pdf = PDF()
+    pdf = PDF(orientation='L')
     pdf.add_page()
     pdf.tabela_dados(dados_paciente, resultados)
     nome_arquivo = f"Relatorio_{num_id}_{nome.replace(' ', '_')}.pdf"
