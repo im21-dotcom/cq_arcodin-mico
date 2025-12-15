@@ -18,9 +18,9 @@ kq_10MV = 0.9787
 # Classe do PDF
 class PDF(FPDF):
     def header(self):
-        self.set_font("Arial", size=12)
-        self.cell(0, 10, "Cálculo de Dose (Arco Dinâmico)", ln=True, align="C")
-        self.ln(5)
+        self.set_font("Arial", "B", 16)
+        self.cell(0, 12, "Controle de Qualidade (Arco Dinâmico)", ln=True, align="C")
+        self.ln(8)
 
     def footer(self):
         # Distância do rodapé
