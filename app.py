@@ -39,16 +39,13 @@ class PDF(FPDF):
 
     def tabela_dados(self, dados_paciente, campos):
         self.set_font("Arial", size=10)
-        # Larguras fixas
-        largura_label = 50
-        largura_valor = 60
-        largura_total = largura_label + largura_valor
-        # X inicial para centralizar o bloco
-        x_inicio = (self.w - largura_total) / 2
-        for chave, valor in dados_paciente.items():
+        linhas = [f"{chave}: {valor}" for chave, valor in dados_paciente.items()]
+        larguras_texto = [self.get_string_width(linha) for linha in linhas]
+        largura_bloco = max(larguras_texto)
+        x_inicio = (self.w - largura_bloco) / 2
+        for linha in linhas:
             self.set_x(x_inicio)
-            self.cell(largura_label, 8, f"{chave}:", border=0, align="R")
-            self.cell(largura_valor, 8, str(valor), border=0, ln=True, align="L")
+            self.cell(largura_bloco, 8, linha, ln=True, align="L")
         self.ln(8)
 
         # Cabeçalho da tabela
