@@ -12,7 +12,6 @@ from fpdf import FPDF
 from datetime import datetime
 
 # Constantes de calibração
-ndw = 4.941
 kq_6MV = 0.9918
 kq_10MV = 0.9787
 
@@ -82,6 +81,12 @@ with st.form("formulario"):
     sitio = st.text_input("Sítio anatômico e lateralidade")
     linac = st.text_input("Acelerador de tratamento")
 
+    st.header("Dados da Câmara")
+    ndw = st.number_input(
+        "Valor do Nd,w da câmara (cGy/nC)",
+        format="%.4f"
+    )
+    
     st.header("Condições Ambientais")
     T = st.number_input("Temperatura (°C)", format="%.1f")
     P = st.number_input("Pressão (kPa)", format="%.1f")
