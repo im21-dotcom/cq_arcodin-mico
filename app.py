@@ -66,9 +66,13 @@ class PDF(FPDF):
             self.ln()
 
         self.ln(10)
-        self.cell(0, 10, f"Data: {datetime.today().strftime('%d/%m/%Y')}", ln=True)
-        self.cell(0, 10, "Nome: ________________________       Revisão (Físico): __________________", ln=True)
-
+        data_hoje = datetime.today().strftime('%d/%m/%Y')
+        texto_final = (
+            "Nome: ________________________    "
+            "Revisão (Físico): __________________    "
+            f"Data: {data_hoje}"
+        )
+        self.cell(0, 10, texto_final, ln=True, align="C")
 
 # Interface do Streamlit
 st.set_page_config(page_title="Controle de Dose", layout="centered")
