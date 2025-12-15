@@ -55,7 +55,12 @@ class PDF(FPDF):
         self.set_font("Arial", 'B', 9)
         colunas = ['Campo', 'Energia (MV)', 'Kq', 'Leitura (nC)', 'Dose Planejada (cGy)',
                    'Dose Encontrada (cGy)', 'Diferença (%)']
+        
         larguras = [25, 25, 15, 30, 35, 35, 25]
+        largura_tabela = sum(larguras)
+        x_tabela = (self.w - largura_tabela) / 2
+        self.set_x(x_tabela)
+        
         for i in range(len(colunas)):
             self.cell(larguras[i], 10, colunas[i], 1, 0, 'C')
         self.ln()
@@ -63,6 +68,7 @@ class PDF(FPDF):
         # Dados dos campos
         self.set_font("Arial", size=9)
         for campo in campos:
+            self.set_x(x_tabela)
             self.cell(larguras[0], 10, campo['nome'], 1, 0, 'C')
             self.cell(larguras[1], 10, str(campo['energia']), 1, 0, 'C')
             self.cell(larguras[2], 10, f"{campo['kq']:.4f}", 1, 0, 'C')
